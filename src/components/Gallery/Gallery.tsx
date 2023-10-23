@@ -39,11 +39,7 @@ const Gallery = () => {
 				<SearchBar />
 			</Header>
 
-			{isGalleryDisplayed && (
-				<Body>
-					<GalleryContent data={data} />
-				</Body>
-			)}
+			<Body>{isGalleryDisplayed && <GalleryContent data={data} />}</Body>
 
 			<Footer>
 				<FooterContent createdAt={galleryContent.createdAt} />

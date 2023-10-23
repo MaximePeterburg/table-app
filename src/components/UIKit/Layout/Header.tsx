@@ -6,11 +6,11 @@ type HeaderProps = {
 
 const Header = ({ title, handleClick, children }: HeaderProps) => {
 	return (
-		<div className="flex w-full justify-between">
-			<div className="flex gap-4">
+		<div className="flex w-full items-center justify-between">
+			<div className="flex items-center gap-4">
 				<button
 					onClick={handleClick}
-					className="text-2xl"
+					className="rounded-lg bg-gray-400 px-3 py-1.5 text-2xl"
 				>
 					👇
 				</button>

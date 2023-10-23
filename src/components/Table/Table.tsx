@@ -31,11 +31,7 @@ const Table = () => {
 					title={title}
 				/>
 
-				{isTableDisplayed && (
-					<Body>
-						<TableContent data={data} />
-					</Body>
-				)}
+				<Body>{isTableDisplayed && <TableContent data={data} />}</Body>
 
 				<Footer>
 					<Pagination />
