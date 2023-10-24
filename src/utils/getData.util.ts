@@ -9,13 +9,14 @@ export type Payment = {
 	id: string;
 	ammount: number;
 	status: PAYMENT_STATUS;
-	email: string;
+	transaction: string;
 };
 
 export const getData = (): Payment[] =>
 	new Array(50).fill(null).map(() => ({
 		id: nanoid(),
-		ammount: Math.random() * 1000,
-		status: PAYMENT_STATUS.PENDING,
-		email: "123@gmail.com",
+		ammount: Math.floor(Math.random() * 1000),
+		status:
+			Math.random() > 0.5 ? PAYMENT_STATUS.COMPLETED : PAYMENT_STATUS.PENDING,
+		transaction: nanoid(),
 	}));

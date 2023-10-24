@@ -6,7 +6,14 @@ type BodyProps = {
 
 const Body = ({ children }: BodyProps) => {
 	const [parentRef] = useAutoAnimate<HTMLDivElement>();
-	return <div ref={parentRef}>{children}</div>;
+	return (
+		<div
+			className=" border-y border-gray-400 "
+			ref={parentRef}
+		>
+			{children}
+		</div>
+	);
 };
 
 export default Body;

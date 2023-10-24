@@ -1,16 +1,42 @@
+import { Table, flexRender } from "@tanstack/react-table";
 import { Payment } from "../../utils/getData.util";
 
 type TableContentProps = {
 	data: Payment[];
+	table: Table<Payment>;
 };
 
-const TableContent = ({ data }: TableContentProps) => {
+const TableContent = ({ table }: TableContentProps) => {
 	return (
-		<ul>
-			{data.slice(0, 6).map((payment) => (
-				<li key={payment.id}>{payment.email}</li>
-			))}
-		</ul>
+		<div className="flex flex-col">
+			<table>
+				<thead>
+					{table.getHeaderGroups().map((headerGroup) => (
+						<tr key={headerGroup.id}>
+							{headerGroup.headers.map((header) => (
+								<th key={header.id}>
+									{flexRender(
+										header.column.columnDef.header,
+										header.getContext(),
+									)}
+								</th>
+							))}
+						</tr>
+					))}
+				</thead>
+				<tbody>
+					{table.getRowModel().rows.map((row) => (
+						<tr key={row.id}>
+							{row.getVisibleCells().map((cell) => (
+								<td key={cell.id}>
+									{flexRender(cell.column.columnDef.cell, cell.getContext())}
+								</td>
+							))}
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
 	);
 };
 
