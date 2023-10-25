@@ -1,4 +1,3 @@
-import { atom } from "jotai";
 import { useAtom } from "jotai/react";
 import france from "../../assets/france.png";
 import italy from "../../assets/italy.png";
@@ -6,23 +5,23 @@ import japan from "../../assets/japan.png";
 import spain from "../../assets/spain.png";
 import uk from "../../assets/uk.png";
 import usa from "../../assets/usa.png";
-import Body from "../UIKit/Layout/Body";
-import CardLayout from "../UIKit/Layout/CardLayout";
-import Footer from "../UIKit/Layout/Footer";
-import Header from "../UIKit/Layout/Header";
-import SearchBar from "../UIKit/SearchBar";
+import { galleryDisplayAtom } from "../../store/atoms";
+import CardBody from "../UIKit/CardLayout/CardBody";
+import CardFooter from "../UIKit/CardLayout/CardFooter";
+import CardHeader from "../UIKit/CardLayout/CardHeader";
+import CardLayout from "../UIKit/CardLayout/CardLayout";
 import FooterContent from "./FooterContent";
 import GalleryContent from "./GalleryContent";
+import HeaderContent from "./HeaderContent";
 
 const galleryContent = {
 	title: "Gallery",
 	data: [japan, france, italy, spain, uk, usa],
-	createdAt: new Date(),
+	updatedAt: new Date(),
 };
-export const galleryDisplayAtom = atom<boolean>(true);
 
 const Gallery = () => {
-	const { title, data } = galleryContent;
+	const { title, data, updatedAt } = galleryContent;
 	const [isGalleryDisplayed, setIsGalleryDisplayed] =
 		useAtom(galleryDisplayAtom);
 
@@ -32,18 +31,20 @@ const Gallery = () => {
 
 	return (
 		<CardLayout>
-			<Header
+			<CardHeader
 				handleClick={handleDisplayGalleryClick}
 				title={title}
 			>
-				<SearchBar />
-			</Header>
+				<HeaderContent />
+			</CardHeader>
 
-			<Body>{isGalleryDisplayed && <GalleryContent data={data} />}</Body>
+			<CardBody>
+				{isGalleryDisplayed && <GalleryContent data={data} />}
+			</CardBody>
 
-			<Footer>
-				<FooterContent createdAt={galleryContent.createdAt} />
-			</Footer>
+			<CardFooter>
+				<FooterContent updatedAt={updatedAt} />
+			</CardFooter>
 		</CardLayout>
 	);
 };

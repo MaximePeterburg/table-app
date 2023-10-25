@@ -15,7 +15,7 @@ export type Payment = {
 export const getData = (): Payment[] =>
 	new Array(50).fill(null).map(() => ({
 		id: nanoid(),
-		ammount: Math.floor(Math.random() * 1000),
+		ammount: Math.floor(Math.random() * 10000),
 		status:
 			Math.random() > 0.5 ? PAYMENT_STATUS.COMPLETED : PAYMENT_STATUS.PENDING,
 		transaction: nanoid(),

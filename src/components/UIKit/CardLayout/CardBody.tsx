@@ -1,14 +1,14 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { ReactNode } from "react";
-type BodyProps = {
+type CardBodyProps = {
 	children: ReactNode;
 };
 
-const Body = ({ children }: BodyProps) => {
+const CardBody = ({ children }: CardBodyProps) => {
 	const [parentRef] = useAutoAnimate<HTMLDivElement>();
 	return (
 		<div
-			className=" border-y border-gray-400 "
+			className="border-y border-gray-400 "
 			ref={parentRef}
 		>
 			{children}
@@ -16,4 +16,4 @@ const Body = ({ children }: BodyProps) => {
 	);
 };
 
-export default Body;
+export default CardBody;

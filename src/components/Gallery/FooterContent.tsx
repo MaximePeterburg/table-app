@@ -1,9 +1,9 @@
 type FooterContentProps = {
-	createdAt: Date;
+	updatedAt: Date;
 };
 
-const FooterContent = ({ createdAt }: FooterContentProps) => {
-	return <div>Последнее обновление {createdAt.toLocaleDateString()}</div>;
+const FooterContent = ({ updatedAt }: FooterContentProps) => {
+	return <div>Последнее обновление {updatedAt.toLocaleDateString()}</div>;
 };
 
 export default FooterContent;

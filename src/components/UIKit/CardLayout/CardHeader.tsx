@@ -1,12 +1,12 @@
-type HeaderProps = {
+type CardHeaderProps = {
 	title: string;
 	handleClick: () => void;
 	children?: React.ReactNode;
 };
 
-const Header = ({ title, handleClick, children }: HeaderProps) => {
+const CardHeader = ({ title, handleClick, children }: CardHeaderProps) => {
 	return (
-		<header className="flex w-full items-center justify-between py-2 ">
+		<header className="flex w-full items-center justify-between py-2">
 			<div className="flex items-center gap-4">
 				<button
 					onClick={handleClick}
@@ -21,4 +21,4 @@ const Header = ({ title, handleClick, children }: HeaderProps) => {
 	);
 };
 
-export default Header;
+export default CardHeader;
