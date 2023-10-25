@@ -8,7 +8,7 @@ export enum PAYMENT_STATUS {
 
 export type Payment = {
 	id: string;
-	ammount: number;
+	ammount: string;
 	status: PAYMENT_STATUS;
 	transaction: string;
 };
@@ -16,7 +16,7 @@ export type Payment = {
 export const getData = (): Payment[] =>
 	new Array(50).fill(null).map(() => ({
 		id: nanoid(),
-		ammount: Math.floor(Math.random() * 10000),
+		ammount: (Math.random() * 10000).toFixed(2),
 		status:
 			Math.random() > 0.5 ? PAYMENT_STATUS.COMPLETED : PAYMENT_STATUS.PENDING,
 		transaction: nanoid(),
