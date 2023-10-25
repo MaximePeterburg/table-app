@@ -1,27 +1,18 @@
-# React + TypeScript + Vite
+<h1>Переиспользуемые карточки</h1>
+<b>Typescript, React, TailwindCSS, Vite</b>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h3>Деплой</h3>
 
-Currently, two official plugins are available:
+https://418table.netlify.app/
+<h3>Описание</h3>
+<p>Создан компонент — сворачиваемая карточка, которая состоит из трёх секций: Header, Body, Footer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. В Header располагается кнопка сворачивания/разворачивания карточки. Также в header есть возможность прокинуть любые другие компоненты, такие как заголовок, строка поиска, и т.д.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+    I. По нажатию на кнопку, Body плавно сворачивается/разворачивается
+   
+    II. У родительского компонента есть доступ к состоянию кнопки в Header
+   
+2. Body может принимать любые компоненты
+3. Footer может принимать любые компоненты
+</p>
